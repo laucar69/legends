@@ -111,7 +111,7 @@ export default function Bestellung({ order }) {
 }
 
 export async function getServerSideProps({params}){
-  const endpointOrder = "http://localhost:3000/api/orders"; 
+  const endpointOrder = "https://legends-xi.vercel.app/api/orders"; 
   const res = await axios.get(endpointOrder + `/${params.nummer}`);
 
   return{
