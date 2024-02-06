@@ -12,7 +12,7 @@ export default function Bestellung({ orders }) {
     const statusUpdate = async (id, aktuellerStatus) => {
         try {
             if (aktuellerStatus <= 2) {
-                await axios.put(`http://localhost:3000/api/orders/` + id, { state: aktuellerStatus + 1 });
+                await axios.put(`https://legends-xi.vercel.app/api/orders/` + id, { state: aktuellerStatus + 1 });
                 router.reload();
             }
         } catch (error) {
@@ -21,7 +21,7 @@ export default function Bestellung({ orders }) {
     }
     const deleteOrder = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/api/orders/` + id);
+            await axios.delete(`https://legends-xi.vercel.app/api/orders/` + id);
             router.reload();        
         } catch (error) {
             console.log(error)
@@ -73,7 +73,7 @@ export default function Bestellung({ orders }) {
 
 export async function getServerSideProps(ctx) {
     const meinCookie = ctx.req?.cookies || "";
-    const res = await axios.get(`http://localhost:3000/api/orders`);
+    const res = await axios.get(`https://legends-xi.vercel.app/api/orders`);
     console.log(meinCookie);
     if (process.env.TOKEN !== meinCookie.token) {
         return {
