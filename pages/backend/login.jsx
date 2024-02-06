@@ -11,7 +11,7 @@ export default function login() {
 
     const login = async () =>{
         try {
-            await axios.post("http://localhost:3000/api/login",{
+            await axios.post("https://legends-xi.vercel.app/api/login",{
                 benutzer,
                 passwort
             })
