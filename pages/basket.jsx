@@ -1,7 +1,7 @@
 import {CloseButton, Table, Card, Button} from 'react-bootstrap'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { removeProduct, clearBasket } from '@/redux/basketSlice'
 import {
   PayPalScriptProvider,
