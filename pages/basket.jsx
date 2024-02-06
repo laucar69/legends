@@ -15,7 +15,7 @@ import { useRouter } from 'next/router'
 
 export default function Basket() {
 
-    const endpointOrder = "http://localhost:3000/api/orders"; 
+    const endpointOrder = "https://legends-xi.vercel.app/api/orders"; 
     const router = useRouter();
 
     const PaypalClientId = "Ab79JIh5IQ1l3zLjIdAxz8xn18rcPxlmyL45wrGKuMXoyqYR4JoUGRZeq7tkaAw9AFCgIr1rhK-EwPh0"
