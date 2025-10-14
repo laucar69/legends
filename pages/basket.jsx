@@ -136,7 +136,7 @@ export default function Basket() {
                       </td>
                       <td>
                         <Link legacyBehavior href={`/Produkte/${product.category}/${product.id}`}>
-                          <a className='text-danger'>
+                          <a style={{color: '#0F5E99'}}>
                             {product.name}
                           </a>
                         </Link>
@@ -153,7 +153,7 @@ export default function Basket() {
                         {(product.price * product.quantity).toFixed(2)} €
                       </td>
                       <td>
-                      <Button className='btn-sm' variant='dark' onClick={() => removePosition(product)}>x</Button>
+                      <Button className='btn-sm' variant='primary' onClick={() => removePosition(product)}>x</Button>
                       </td>
                     </tr>
                 ))}
