@@ -1,0 +1,20 @@
+.breadcrumb {
+  font-size: calc(1rem - 2px);
+  color: #999999;
+  margin-bottom: 1rem;
+}
+
+.link {
+  color: #999999;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
+.separator {
+  color: #999999;
+  margin: 0 0.25rem;
+}

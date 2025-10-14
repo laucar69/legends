@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import styles from './BreadCrump.module.css'
 
 
 export default function BreadCrump() {
@@ -23,15 +24,15 @@ export default function BreadCrump() {
     const breadCrumpLength = breadCrump.length;
 
 
-    let out = <Link href={"/"}>Home</Link>;
+    let out = <Link href={"/"} className={styles.link}>Home</Link>;
 
 
     for (let x = 0; x <= breadCrumpLength -2; x++){
-          out = <>{out} <span> | </span> <Link href={breadCrump[x].href}>{breadCrump[x].subpath}</Link></>
+          out = <>{out} <span className={styles.separator}> &gt; </span> <Link href={breadCrump[x].href} className={styles.link}>{breadCrump[x].subpath}</Link></>
     } 
 
     return (
-        <div>
+        <div className={styles.breadcrumb}>
             {out}
         </div>
     );
