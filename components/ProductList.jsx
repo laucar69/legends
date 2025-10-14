@@ -4,6 +4,7 @@ import { useDispatch} from 'react-redux';
 import { useState } from 'react';
 import { addProducts } from '@/redux/basketSlice';
 import {v4 as uuidv4 } from 'uuid'
+import styles from './ProductList.module.css'
 
 
 export default function ProductList({products}) {
@@ -19,32 +20,38 @@ export default function ProductList({products}) {
         dispatch(addProducts({...product, extras, price, quantity, _id}))
   }
   return (
-    <div>
-        <div className="row row-cols-3">
+    <div className={styles.productListContainer}>
+        <div className={styles.productGrid}>
             {products?.map((product) => (
-                <div key={product.name} className="mt-3 col">
-                    <Card>
+                <div key={product.name} className={styles.productCard}>
+                    <Card className="h-100 card">
                         <Link legacyBehavior href={`/Produkte/${product.category}/${product.id}`} passHref>
-                            <a>
-                                <Card.Img variant="top" src={product.image} />
+                            <a className={styles.productImageLink}>
+                                <Card.Img variant="top" src={product.image} className={styles.productImage} />
                             </a>
                         </Link>
-                        <Card.Body>
-                            <Card.Title>
-                                {product.name} {product.price.toFixed(2)} €
+                        <Card.Body className={styles.cardBody}>
+                            <Card.Title className={styles.productTitle}>
+                                {product.name}
                             </Card.Title>
-                            <Card.Text>
-                                Kategory: <Link legacyBehavior href={`Produkte/${product.category}`} passHref><a>{product.category}</a></Link>
+                            <div className={styles.productPrice}>
+                                {product.price.toFixed(2)} €
+                            </div>
+                            <Card.Text className={styles.productCategory}>
+                                Kategorie: <Link legacyBehavior href={`Produkte/${product.category}`} passHref>
+                                    <a className={styles.categoryLink}>{product.category}</a>
+                                </Link>
                             </Card.Text>
-                            <Button variant="danger"onClick={() => addToBasket(product)}>zum Warenkorb</Button>
+                            <Button 
+                                className={`${styles.addButton} btn-primary`}
+                                onClick={() => addToBasket(product)}>
+                                Zum Warenkorb
+                            </Button>
                         </Card.Body>
                     </Card>
                 </div>
             ))}
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
     </div>
   )
 }
