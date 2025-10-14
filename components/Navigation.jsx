@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {Badge} from 'react-bootstrap'
 import { useSelector } from 'react-redux'
+import styles from './Navigation.module.css'
 
 export default function Navigation() {
 
@@ -10,19 +11,18 @@ export default function Navigation() {
     const categories = ['Burger', 'Beilagen', 'Salate', 'Wraps', 'Pasta'];
 
     return (
-      <div className="shadow sticky-top p-2 mb-2 bg-dark">
-        <div className="d-flex justify-content-between align-items-center">
+      <nav className={styles.navigation}>
+        <div className={styles.navContainer}>
             <Link legacyBehavior href="/">
-                <a>
-                    <Image src={'/img/layout/logo.jpg'} alt='logo' width={80} height={80} />
+                <a className={styles.logoLink}>
+                    <Image src={'/img/layout/logo.jpg'} alt='Legends Logo' width={80} height={80} />
                 </a>
             </Link>
             
-            <div className="d-flex gap-3 align-items-center">
+            <div className={styles.navLinks}>
                 {categories.map((category) => (
                     <Link key={category} legacyBehavior href={`/Produkte/${category}`}>
-                        <a className="text-white text-decoration-none fw-semibold" 
-                           style={{fontSize: '1rem', cursor: 'pointer'}}>
+                        <a className={styles.navLink}>
                             {category}
                         </a>
                     </Link>
@@ -30,13 +30,15 @@ export default function Navigation() {
             </div>
 
             <Link legacyBehavior href="/basket">
-                <a>
-                    <Image src={'/img/layout/basket.png'} alt='logo' width={30} height={30} />
-                    <Badge pill bg='secondary'>{basketQuantity}</Badge>
+                <a className={styles.basketLink}>
+                    <Image src={'/img/layout/basket.png'} alt='Warenkorb' width={30} height={30} />
+                    {basketQuantity > 0 && (
+                        <Badge pill bg='danger' className={styles.basketBadge}>{basketQuantity}</Badge>
+                    )}
                 </a>
             </Link>
         </div>
-      </div>
+      </nav>
     )
   }
   
