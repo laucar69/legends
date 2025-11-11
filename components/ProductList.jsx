@@ -34,7 +34,7 @@ export default function ProductList({products}) {
                                 {product.name} {product.price.toFixed(2)} €
                             </Card.Title>
                             <Card.Text>
-                                Kategory: <Link legacyBehavior href={`Produkte/${product.category}`} passHref><a>{product.category}</a></Link>
+                                Kategory: <Link legacyBehavior href={`/Produkte/${product.category}`} passHref><a>{product.category}</a></Link>
                             </Card.Text>
                             <Button variant="danger"onClick={() => addToBasket(product)}>zum Warenkorb</Button>
                         </Card.Body>
