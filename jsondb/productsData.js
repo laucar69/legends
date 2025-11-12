@@ -167,6 +167,38 @@ const jsondb = {
                     price: -1
                 }
             ]
+        },
+        {
+            name: "Cola",
+            description: "Erfrischende Cola",
+            price: 3.00,
+            category: "Getränke",
+            id: "drink1",
+            image: "/img/products/p14.jpeg"
+        },
+        {
+            name: "Wein",
+            description: "Glas Wein",
+            price: 5.00,
+            category: "Getränke",
+            id: "drink2",
+            image: "/img/products/p15.jpeg"
+        },
+        {
+            name: "Bier",
+            description: "Kühles Bier",
+            price: 3.50,
+            category: "Getränke",
+            id: "drink3",
+            image: "/img/products/p16.jpeg"
+        },
+        {
+            name: "Wasser",
+            description: "Mineralwasser",
+            price: 2.50,
+            category: "Getränke",
+            id: "drink4",
+            image: "/img/products/p17.jpeg"
         }
     ]
 }
